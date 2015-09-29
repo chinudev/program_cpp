@@ -110,9 +110,73 @@ void testReplaceSpace()
 }
 
 
+//
+// Given a character array find index for the character that is repeated most often. 
+//   
+int findMaxRepeatedCharSeq(const char* str)
+{
+	if (str == nullptr) return -1;
+	if (*str == '\0') return -1;   //empty string
+
+
+	uint32_t    currCharIndex  = 0;
+	uint32_t    currStartIndex = 0;
+	char        currChar       = *str;
+	uint32_t    currSeqLen     = 0;
+
+	uint32_t    maxSeqLen   = 0;
+	uint32_t    maxSeqIndex = 0;
+
+	while (*str) {
+		if (*str == currChar) {
+			currSeqLen++;
+		} else {
+			if (currSeqLen > maxSeqLen) {
+				maxSeqLen = currSeqLen;
+				maxSeqIndex = currStartIndex;
+			}
+			currStartIndex = currCharIndex;
+			currChar       = *str;
+			currSeqLen     = 1;
+		}
+
+		currCharIndex++;
+		str++;
+	}
+	if (currSeqLen > maxSeqLen) {
+		return currStartIndex;
+	} else {
+		return maxSeqIndex;
+	}
+}
+
+void testMaxRepeatSeq()
+{
+	assert(findMaxRepeatedCharSeq(nullptr) == -1);
+
+	{
+		const char *str = "";
+		assert(findMaxRepeatedCharSeq(str) == -1);
+	}
+
+	{
+		const char *str = "a";
+		assert(findMaxRepeatedCharSeq(str) == 0);
+	}
+	{
+		const char *str {"aabb"};
+		assert(findMaxRepeatedCharSeq(str) == 0);
+	}
+	{
+		const char *str {"aabbb"};
+		assert(findMaxRepeatedCharSeq(str) == 2);
+	}
+
+}
 
 int main()
 {
 	//testReverse();
-	testReplaceSpace();
+	//testReplaceSpace();
+	testMaxRepeatSeq();
 }
