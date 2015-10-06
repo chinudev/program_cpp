@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -133,9 +134,56 @@ void testRotate()
 }
 
 
+// Print matrix diagnoally
+void printDiagonal(const vector<vector<int>> matrix) 
+{
+	int n = matrix.size();
+
+	//cout << "size = " << n << endl;
+
+	// print diagonals starting from leftmost column
+	for (int i=0; i < n; i++) {
+		for (int k=0; k <= i; k++) {
+			cout << matrix[i-k][k] << "  ";
+		}
+		cout << endl;
+	}
+
+	for (int j=1; j < n; j++) {
+		for (int k=0; k < n-j; k++) {
+			cout << matrix[n-1-k][j+k] << "  ";
+		}
+		cout << endl;
+	}
+}
+
+void printMatrix(const vector<vector<int>> matrix) 
+{
+	int n = matrix.size();
+	for (int i=0; i<n; i++) {
+		for (int j=0; j<n; j++) {
+			cout << matrix[i][j] << "  ";
+		}
+		cout << endl;
+	}
+}
+
+
+void testMatrix() 
+{
+	vector<vector<int>>matrix { {1,2,3}, {4,5,6}, {7,8,9}};
+	printMatrix(matrix);
+	printDiagonal(matrix);
+
+	printDiagonal(vector<vector<int>>() ); // empty vector
+	printDiagonal({{1}});
+	printDiagonal({{1,2},{3,4}});
+
+}
 
 int main()
 {
 	//testNullify();
-	testRotate();
+	//testRotate();
+	testMatrix();
 }
