@@ -3,4 +3,9 @@
 *.dSYM
 *.bin
 *.o
+*.obj
+*.exe
 a.out
+.sconsign.dblite
+.idea/
+*~
