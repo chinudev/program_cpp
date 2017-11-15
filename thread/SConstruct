@@ -9,4 +9,5 @@ if sys.platform == 'win32':
 Program("thread_simple.cpp", CCFLAGS=MyFlags)
 Program("mutex.cpp", CCFLAGS=MyFlags)
 Program("condition.cpp", CCFLAGS=MyFlags)
+Program("async_future.cpp", CCFLAGS=MyFlags)
 
