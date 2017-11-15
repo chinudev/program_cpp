@@ -10,4 +10,5 @@ Program("thread_simple.cpp", CCFLAGS=MyFlags)
 Program("mutex.cpp", CCFLAGS=MyFlags)
 Program("condition.cpp", CCFLAGS=MyFlags)
 Program("async_future.cpp", CCFLAGS=MyFlags)
+Program("packaged_task.cpp", CCFLAGS=MyFlags)
 
