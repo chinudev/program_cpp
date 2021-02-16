@@ -9,3 +9,4 @@ if sys.platform == 'win32':
 
 Program("test_list.cpp", CCFLAGS=MyFlags)
 Program("find_duplicate.cpp", CCFLAGS=MyFlags)
+Program("k_to_last.cpp", CCFLAGS=MyFlags)
