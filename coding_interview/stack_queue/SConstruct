@@ -1,0 +1,10 @@
+import sys
+
+env = Environment()
+
+MyFlags = env['CCFLAGS']
+MyFlags.append('--std=c++14')
+if sys.platform == 'win32':
+    MyFlags.append( '/EHsc')
+
+Program("3stacks.cpp", CCFLAGS=MyFlags)
