@@ -15,7 +15,11 @@ public:
         if (valueStack.size() == 1) {
             minStack.push_back(val);
         } else {
-            minStack.push_back(std::min (val, this->min()));
+            if (val <= this->min()) {
+                // Only push min if there is a new min. Note we will still push
+                //  if the value == previous min.
+                minStack.push_back( val );
+            }
         }
     }
     int pop() 
@@ -24,15 +28,21 @@ public:
             throw std::underflow_error("Popping an emtpy stack");
         }
         int value = valueStack.back();
-        minStack.pop_back();
+        if (value == this->min()) {
+            minStack.pop_back();
+        }
         valueStack.pop_back();
         return value;
     }
 
     int min() 
     {
+        if (valueStack.size() == 0) {
+            throw std::underflow_error("No min defined for an emtpy stack");
+        }
         return minStack.back();
     }
+
 
 private: 
     vector<int> valueStack;
