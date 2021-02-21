@@ -8,3 +8,4 @@ if sys.platform == 'win32':
     MyFlags.append( '/EHsc')
 
 Program("3stacks.cpp", CCFLAGS=MyFlags)
+Program("min_stack.cpp", CCFLAGS=MyFlags)
