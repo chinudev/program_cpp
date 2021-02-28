@@ -1,3 +1,11 @@
+
+# Ignore all, then add directories adn files with extension
+#   workaround to ignore executables (file without extension)
+*
+!*.*
+!*/
+
+
 .*.swp
 *.swp
 *.dSYM
