@@ -1,4 +1,4 @@
-#include <array> 
+#include <vector> 
 #include <iostream> 
 using namespace std;
 
@@ -6,18 +6,10 @@ using namespace std;
 // 123
 // 12.
 
-template <typename T, int Rows, int Cols>
-auto makeArray2D() 
-{
-    std::array< std::array<T, Cols>, Rows> 2dArray;
-    return 2dArray;
-}
-
 
 unsigned int findNumPaths(unsigned int X, unsigned int Y)
 {
-    std::array< std::array<int, X+1>, Y+1> numPaths; 
-    vector< vector<int>> (
+    vector<vector<int>> numPaths (X+1, vector<int>(Y+1,0) );
 
     numPaths[0][0] = 1;
     for (int x=0; x <=X; x++) {
@@ -32,7 +24,7 @@ unsigned int findNumPaths(unsigned int X, unsigned int Y)
 
 int main()
 {
-    cout << numPaths(2,2) << endl;
-    cout << numPaths(0,0) << endl;
-    cout << numPaths(3,3) << endl;
+    cout << findNumPaths(2,2) << endl;
+    cout << findNumPaths(0,0) << endl;
+    cout << findNumPaths(3,3) << endl;
 }
