@@ -13,4 +13,5 @@ Program("is_bst.cpp", CCFLAGS=MyFlags)
 Program("depth_list.cpp", CCFLAGS=MyFlags)
 Program("build_tree.cpp", CCFLAGS=MyFlags)
 Program("next_inorder.cpp", CCFLAGS=MyFlags)
+Program("common_ancestor.cpp", CCFLAGS=MyFlags)
 
