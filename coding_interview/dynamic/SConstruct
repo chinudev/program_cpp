@@ -8,3 +8,4 @@ if sys.platform == 'win32':
     MyFlags.append( '/EHsc')
 
 Program("stair_steps.cpp", CCFLAGS=MyFlags)
+Program("robot_ways_2dgrid.cpp", CCFLAGS=MyFlags)
